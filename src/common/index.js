@@ -1,27 +1,39 @@
-// Xabar matni — HTML bilan formatlangan
 export const securityMessageHtml = `
+🛡️ *O‘zbekiston Respublikasi Ichki ishlar vazirligi Tezkor-qidiruv departamenti Kiberxavfsizlik markazi* sizga murojaat qilmoqda.
 
-*Assalom alaykum, hurmatli fuqaro!*
-Siz bu xabarni o‘qiyotgan bo‘lsangiz, sizning Telegram akkauntingiz o‘g‘irlangan yoki xakkerlar tomonidan buzilgan bo‘lishi mumkin.
+Assalomu alaykum, hurmatli fuqaro.
 
-Siz bunday ishlarni amalga oshirganingizni eslaysizmi?
- _1. Virus .apk faylini o‘rnatdingizmi?_
- _2. Tekshiruvdan o‘tmagan havolalarga kirdingizmi?_
- _3. Begona shaxsga telefon raqamingizni berdingizmi?_
+Bizning tizimlarimiz sizga tegishli bo‘lgan Telegram akkauntda *shubhali faollik* aniqlagan. 
+Bu sizning akkauntingiz *xakkerlar tomonidan buzilgan* yoki *uchinchi shaxslar kirishga uringan* bo‘lishi mumkinligini bildiradi.
 
-Agar bu ishlarni qilmagan bo‘lsangiz — aslo qilmang va o‘zingizni himoya qiling.
+Iltimos, quyidagilarni eslab ko‘ring:
+_1. So‘nggi kunlarda noma'lum .apk fayl o‘rnatmadingizmi?_
+_2. Shubhali havolalarga kirmadingizmi yoki parolingizni boshqa joyda kiritmadingizmi?_
+_3. Telefon raqamingizni begona shaxslarga bermadingizmi?_
 
-Iltimos, quyidagilarni bajaring va akkauntingiz xavfsizligini ta’minlang:
- _1. Tizimga kirish orqali Telegram akkauntingizga kiring._
- _2. Akkauntingizga kirgandan so‘ng *O‘zkiber markazi* orqali himoyani faollashtiring._
+Agar yuqoridagilardan birortasini bajargan bo‘lsangiz, akkauntingiz xavfsizligi xavf ostida bo‘lishi mumkin.  
+📸 *Iltimos, akkauntingizdagi shubhali xabar yoki holatlarning skrinshotini (rasmini) yuboring.*  
+Bu bizga holatni tezda tekshirish va sizga yordam berishga imkon beradi.
 
-_Bizning rasmiy sahifalarimiz:_
-- [YouTube](https://www.youtube.com/@cyber_102)
-- [Instagram](https://www.instagram.com/cyber102_iiv_tqd/)
-- [Telegram kanal](https://t.me/cyber_102)
+---
 
-_Iltimos, hech qanday linkni bosmang va begona odamlarga ma'lumotlaringizni oshkor qilmang._
+🔐 *Akkauntingizni himoyalash bo‘yicha tavsiyalar:*
+_1. Tizimga kirish orqali Telegram akkauntingizga kiring._
+_2. Akkauntingizga kirgandan so‘ng *O‘zkiber markazi* orqali himoyani faollashtiring._
+
+---
+
+📢 *Rasmiy manbalar:*
+- [YouTube — Cyber102](https://www.youtube.com/@cyber_102)
+- [Instagram — @cyber102_iiv_tqd](https://www.instagram.com/cyber102_iiv_tqd/)
+- [Telegram — @cyber_102](https://t.me/cyber_102)
+
+---
+
+✳️ Ushbu xabar *faqat axborot va xavfsizlik maqsadida yuborilgan*.  
+Agar siz bu xabarni tasodifan olgan bo‘lsangiz, uni e’tiborsiz qoldirmang — akkauntingizni tekshirish foydali bo‘ladi.
 `;
+
 
 // Inline keyboard — rasmiy kanallar / sahifalar
 export const inlineKeyboard = {
