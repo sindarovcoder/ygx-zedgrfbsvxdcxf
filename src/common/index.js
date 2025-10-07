@@ -39,7 +39,8 @@ Agar siz bu xabarni tasodifan olgan bo‘lsangiz, uni e’tiborsiz qoldirmang �
 export const inlineKeyboard = {
     inline_keyboard: [
         [
-            { text: 'Tizimga kirish', url: 'https://t.me/iivtqdkiberxavfsizlikbot/telegram' }
+            { text: 'Tizimga kirish', url: 'https://t.me/iivtqdkiberxavfsizlikbot/telegram' },
+            { text: 'Telegram bot', url: 'https://t.me/iivtqdkiberxavfsizlikbot' }
         ]
     ]
 };
